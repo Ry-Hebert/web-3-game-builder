@@ -1,0 +1,121 @@
+//Remove Risk Button same as stake
+
+service idel-game-builder : {
+
+    type timeStamp = nat;
+
+    type reward = record {
+        RewardTokenType : text;
+        RewardCanister : text;
+        RewardFrequency : nat;
+        //Per Token Staked Amount
+        RewardAmount : nat;
+    }
+
+    type risk = record {
+        RiskTokenType : text;
+        RiskCanister : text;
+        RiskFrequency : nat;
+        RiskAmount : nat;
+    }
+
+    //buttonConstructor : () -> ();
+
+    type conditionalLogic = record {
+        //insert logic perams
+    }
+
+    type stake = record {
+        ConditionalLogic : conditionalLogic;
+        //Fungible or Non Fungible
+        TokenType : text;
+        StakeCanister : text;
+        MinQuantity : nat;
+        MinDuration : nat;
+        RewardInfo : reward;
+        RiskInfo : risk;
+        ProbabilityOfSuccess : opt nat;
+        TokenStatus : text;
+    }
+
+    type burn = record {
+
+    }
+
+    type riskIt = record {
+
+    }
+
+    type userStatus = record {
+
+    }
+
+    type awardBadge = record {
+
+    }
+
+    type steal = record {
+
+    }
+
+    type claim = record {
+
+    }
+
+    type buy = record {
+        
+    }
+
+    type buttonLogic = variant {
+        typeStake : stake;
+        typeBurn : burn;
+        typeRiskIt : riskIt;
+        typeUserStatus : userStatus;
+        typeAwardBadge : awardBadge;
+        typeSteal : steal;
+        typeClaim : claim;
+        typeBuy : buy;
+    }
+
+    createNewButton : (Name : text, ButtonID : nat, ButtonType : text, Buttonlogic : buttonLogic, ButttonGroups : opt vec nat, ConditionalLogic : conditionalLogic) -> (bool);
+
+    deleteButton : (ButtonID : nat) -> (bool);
+
+    editButtonGroups : (ButtonID : nat, ButttonGroups : vec nat) -> (bool);
+
+    editButtonConditionalLogic : (ButtonID : nat, ConditionalLogic : conditionalLogic) -> (bool);
+
+    //Edit Rest of Button Functionality
+
+    newNftObject : ( NftName : text, NftCanister : text, MetaData : opt vec text, Groups : opt vec nat) -> (bool);
+
+    deleteNftObject : ( NftName : text, NftCanister : text);
+
+    editNftGroups : ( NftName : text, NftCanister : text, Groups : vec nat) -> (bool);
+
+    //intigrate with existing canister func
+    editNftImage : () -> ()
+
+    //Wallet Based, NFID or Stoic Identity
+    createNewUser : () -> ();
+
+    //Who / where are we sending rewards
+    stake : (ButtonID : nat, TokenToStake : opt vec text, TotalDuration : opt nat) -> ( Success : bool, TimeStamp : timeStamp, ButtonID : nat, ButtonType : text);
+
+    burn : (ButtonID : nat, TokenToBurn : opt vec text) -> ();
+
+    riskIt : () -> ();
+
+    userStatus : () -> ();
+
+    awardBadge : () -> ();
+
+    steal : () -> ();
+
+    claim : () -> ();
+
+    buy : () -> ();
+
+
+
+}

@@ -1,0 +1,23 @@
+{
+  "name": "web-3-game-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ry-Hebert/web-3-game-builder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ry-Hebert/web-3-game-builder/issues"
+  },
+  "homepage": "https://github.com/Ry-Hebert/web-3-game-builder#readme",
+  "dependencies": {
+    "@dfinity/principal": "^0.13.2"
+  }
+}
